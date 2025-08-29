@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import HomePage from "./Pages/Homepage";
+import Game from "./Pages/Game";
+import "./App.css";
 
-function App() {
+function AnimatedRoutes() {
+  const location = useLocation();
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [stage, setStage] = useState("fadeIn");
+
+  useEffect(() => {
+    if (location !== displayLocation) setStage("fadeOut");
+  }, [location, displayLocation]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={`page ${stage}`}
+      onAnimationEnd={() => {
+        if (stage === "fadeOut") {
+          setStage("fadeIn");
+          setDisplayLocation(location);
+        }
+      }}
+    >
+      <Routes location={displayLocation}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/games" element={<Game />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <Navbar />
+      <AnimatedRoutes />
+      <Footer />
+    </Router>
+  );
+}
