@@ -1,0 +1,75 @@
+/* Base */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: rgba(10, 10, 14, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  z-index: 10000; /* ABOVE everything (birds/background/hero) */
+}
+
+.nav-container {
+  max-width: 1200px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  color: #fff; text-decoration: none; font-weight: 700;
+  letter-spacing: .5px; font-size: 1.1rem;
+}
+
+/* Desktop links */
+.nav-links {
+  display: flex; gap: 22px; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  color: #e5e7eb; text-decoration: none; font-weight: 500;
+}
+.nav-links a:hover { color: #fff; }
+
+/* Hamburger button */
+.menu-icon {
+  display: none;
+  background: transparent; border: 0; color: #fff; font-size: 1.35rem;
+  cursor: pointer; line-height: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu-icon { display: block; z-index: 10002; }
+
+  .nav-links {
+    position: absolute;
+    top: 60px; right: 0;
+    width: 240px;
+    flex-direction: column;
+    background: #0b0b12;
+    border-left: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: none;
+    padding: 12px;
+    z-index: 10001;
+  }
+  .nav-links.active { display: flex; }
+
+  .nav-links li { margin: 6px 0; }
+  .nav-links a { padding: 10px 8px; display: block; }
+}
+
+/* Backdrop when menu open on mobile */
+.nav-backdrop {
+  display: none;
+}
+@media (max-width: 768px) {
+  .nav-backdrop.show {
+    display: block;
+    position: fixed; inset: 60px 0 0 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 9999;
+  }
+}
