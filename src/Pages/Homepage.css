@@ -1,0 +1,103 @@
+/* Page */
+.homepage {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  color: white; text-align: center; font-family: "Poppins", sans-serif;
+  padding-top: 60px;   /* space for fixed navbar */
+  padding-bottom: 60px;/* space for fixed footer */
+}
+
+/* Background layers */
+.stars, .twinkling, .clouds {
+  position: absolute; inset: 0;
+}
+.stars {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+}
+.twinkling {
+  background: url("https://www.transparenttextures.com/patterns/dark-mosaic.png") repeat;
+  animation: moveBackground 200s linear infinite;
+}
+.clouds {
+  background: url("https://www.transparenttextures.com/patterns/clouds.png") repeat;
+  animation: moveBackground 100s linear infinite;
+}
+@keyframes moveBackground {
+  from { background-position: 0 0; }
+  to   { background-position: -10000px 5000px; }
+}
+
+/* Hero */
+.hero { z-index: 3; }
+.animated-text {
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffffff, #cfe7ff);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  white-space: nowrap; overflow: hidden; border-right: 2px solid rgba(255,255,255,0.85);
+  animation: typing 4s steps(20, end), blink .8s infinite;
+  display: inline-block;
+}
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
+
+.subtext {
+  font-size: clamp(.95rem, 2.2vw, 1.2rem);
+  margin-top: 8px; color: #e5e7eb;
+}
+
+/* Classy, always-glowing CTA (phone-friendly) */
+.start-btn {
+  margin-top: 24px;
+  padding: 14px 28px;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  font-weight: 700;
+  color: #e6fbff;
+  background: linear-gradient(135deg, #0b2b33, #0ea5e9); /* deep teal -> azure */
+  border: 1px solid rgba(14,165,233,0.35);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(14,165,233,0.35);
+  animation: subtlePulse 2.6s ease-in-out infinite;
+  transition: transform .16s ease;
+}
+.start-btn:hover { transform: translateY(-1px); }
+.start-btn:active { transform: translateY(0) scale(0.98); }
+
+@keyframes subtlePulse {
+  0%   { box-shadow: 0 0 24px rgba(14,165,233,0.28); }
+  50%  { box-shadow: 0 0 46px rgba(14,165,233,0.45); }
+  100% { box-shadow: 0 0 24px rgba(14,165,233,0.28); }
+}
+
+/* Birds */
+.bird-gif { position: absolute; pointer-events: none; z-index: 2; }
+.bird-gif img { width: 120px; height: auto; }
+.bird-lr {
+  left: -200px;
+  animation-name: flyLR; animation-iteration-count: infinite; animation-timing-function: linear;
+}
+.bird-rl {
+  right: -200px;
+  animation-name: flyRL; animation-iteration-count: infinite; animation-timing-function: linear;
+}
+.bird-rl img.flipped { transform: scaleX(-1); }
+
+@keyframes flyLR { from { left: -200px; } to { left: 110%; } }
+@keyframes flyRL { from { right: -200px; } to { right: 110%; } }
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .bird-gif img { width: 86px; }
+}
+
+/* Note text below button */
+.note-text {
+  margin-top: 12px;
+  font-size: clamp(.8rem, 2vw, .95rem);
+  color: #cbd5e1;
+}
