@@ -90,7 +90,6 @@
 @keyframes flyLR { from { left: -200px; } to { left: 110%; } }
 @keyframes flyRL { from { right: -200px; } to { right: 110%; } }
 
-/* Mobile tweaks */
 @media (max-width: 768px) {
   .bird-gif img { width: 86px; }
 }
