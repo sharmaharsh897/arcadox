@@ -94,7 +94,6 @@
   .bird-gif img { width: 86px; }
 }
 
-/* Note text below button */
 .note-text {
   margin-top: 12px;
   font-size: clamp(.8rem, 2vw, .95rem);
