@@ -74,7 +74,6 @@
   100% { box-shadow: 0 0 24px rgba(14,165,233,0.28); }
 }
 
-/* Birds */
 .bird-gif { position: absolute; pointer-events: none; z-index: 2; }
 .bird-gif img { width: 120px; height: auto; }
 .bird-lr {
