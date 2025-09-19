@@ -31,7 +31,6 @@
   to   { background-position: -10000px 5000px; }
 }
 
-/* Hero */
 .hero { z-index: 3; }
 .animated-text {
   font-size: clamp(1.6rem, 4.5vw, 2.6rem);
