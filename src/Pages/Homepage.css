@@ -8,7 +8,7 @@
   display: flex; align-items: center; justify-content: center; flex-direction: column;
   color: white; text-align: center; font-family: "Poppins", sans-serif;
   padding-top: 60px;   /* space for fixed navbar */
-  padding-bottom: 60px;/* space for fixed footer */
+  padding-bottom: 60px;
 }
 
 .stars, .twinkling, .clouds {
